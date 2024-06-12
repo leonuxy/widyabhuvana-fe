@@ -23,7 +23,7 @@
                     id="kata-sandi"
                 />
             </div>
-            <a href="" class="block w-full text-right text-sm pr-2 mt-2 text-secondaryBlue">Lupa kata sandi</a>
+            <a href="" class="block w-full text-right text-sc m pr-2 mt-2 text-secondaryBlue">Lupa kata sandi</a>
             <a href="/dashboard" class="text-white block w-full text-center font-semibold p-4 bg-primaryBlue rounded-xl text-xl mt-4">Masuk</a>
         </div>
     </div>
