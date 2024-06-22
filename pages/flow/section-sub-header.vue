@@ -5,11 +5,24 @@
         <NuxtLink to="/">
             <img src="/img/svg/arrow_left_alt.svg" alt="">
         </NuxtLink>
-        
-        <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-secondaryBlue h-100 md:min-h-min">
+        <div class=" w-full min-h-80 shadow-md rounded-lg bg-chocolateMain content-center">
+            <div class="grid content-center py-10"> 
+                <div class="grid justify-items-center content-center ">
+                    <img src="/img/svg/play_button.svg" class="w-16" alt="">
+                </div>
+            </div>
+            <div class="grid content-end px-5 pb-4 self-end">
+                    <h3 class="text-white text-2xl">
+                        Mendengarkan Unsur-Unsur Pembangun Cerpen
+                    </h3>
+            </div>
+        </div>
+
+        <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-orange-500 h-100 md:min-h-min">
             
-            <div class="flex flex-row justify-items-stretch">
+            <div class="flex flex-row justify-items-stretch ">
                 <div class="w-12 h-12 mr-8 place-content-between">
+                    
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -30,20 +43,30 @@
                 </div>
                 <div>
                     <h3 class="text-white text-2xl">
+                        Mendengarkan Unsur-Unsur Pembangun Cerpen
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-secondaryBlue h-100 md:min-h-min">
+            
+            <div class="flex flex-row justify-items-stretch ">
+                <div class="w-12 h-12 mr-8 place-content-between">
+                    <img src="/img/svg/book_open.svg" alt="">
+                </div>
+                <div>
+                    <h3 class="text-white text-2xl">
                         Membaca Pengertian Cerita Pendek
                     </h3>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-row-reverse">
-            <!-- <div class="md:w-40"> -->
+        <!-- <div class="flex flex-row-reverse">
                 <button class="bg-amber-500 mt-4 rounded-lg h-10 w-40 xs:w-full flex items-center justify-center text-white">
                     Selanjutnya!
-                    <!-- <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">3</span> -->
                 </button>
-            <!-- </div> -->
-        </div>
+        </div> -->
     </div>
     <NavBottom />
 </template>
