@@ -100,8 +100,7 @@ export default {
             if ((statusCode.value == 409 &&  resp.detail.email))   {
                 error.value = "Email sudah teregistrasi"
             } else if (statusCode.value == 201) {
-                const token = useCookie('Authorization')
-                token.value = resp.token
+                localStorage.setItem('Authorization', resp.token);
                 navigateTo('/dashboard')
             } else {
                 error.value = "Oops... terjadi sesuatu yang tidak terduga"
