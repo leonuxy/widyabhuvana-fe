@@ -16,10 +16,13 @@
 
         <div class="flex flex-row-reverse">
             <!-- <div class="md:w-40"> -->
-                <button class="bg-amber-500 mt-4 rounded-lg h-10 w-40 xs:w-full flex items-center justify-center text-white">
-                    Selanjutnya!
-                    <!-- <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">3</span> -->
-                </button>
+                
+                <NuxtLink to="/flow/section-sub-header">
+                    <button class="bg-amber-500 mt-4 rounded-lg h-10 w-40 xs:w-full flex items-center justify-center text-white">
+                        Selanjutnya!
+                        <!-- <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">3</span> -->
+                    </button>
+                </NuxtLink>
             <!-- </div> -->
         </div>
     </div>

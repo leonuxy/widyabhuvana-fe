@@ -11,18 +11,20 @@
                     <img src="/img/svg/play_button.svg" class="w-16" alt="">
                 </div>
             </div>
-            <div class="grid content-end px-5 pb-4 self-end">
+            
+            <NuxtLink to="/flow/what-is-audio">
+                <div class="grid content-end px-5 pb-4 self-end">
                     <h3 class="text-white text-2xl">
                         Mendengarkan Unsur-Unsur Pembangun Cerpen
                     </h3>
-            </div>
+                </div>
+            </NuxtLink>
         </div>
 
+        <NuxtLink to="/flow/what-is-audio">
         <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-orange-500 h-100 md:min-h-min">
-            
             <div class="flex flex-row justify-items-stretch ">
                 <div class="w-12 h-12 mr-8 place-content-between">
-                    
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -48,8 +50,11 @@
                 </div>
             </div>
         </div>
-        <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-secondaryBlue h-100 md:min-h-min">
-            
+    </NuxtLink>
+    
+    <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-secondaryBlue h-100 md:min-h-min">
+        
+        <NuxtLink to="/flow/what-is-desc">
             <div class="flex flex-row justify-items-stretch ">
                 <div class="w-12 h-12 mr-8 place-content-between">
                     <img src="/img/svg/book_open.svg" alt="">
@@ -60,6 +65,8 @@
                     </h3>
                 </div>
             </div>
+    </NuxtLink>
+
         </div>
 
         <!-- <div class="flex flex-row-reverse">
