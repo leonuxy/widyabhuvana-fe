@@ -3,8 +3,8 @@
     <!-- <img src="/img/bg-profile.jpg" alt="" class="w-auto mx-auto bg-fixed"> -->
     <div class="container mx-auto px-4 py-20 grid content-center">
         
-        <div class="flex justify-between place-content-evenly">
-            <NuxtLink to="/">
+        <div class="flex justify-between place-content-evenly">            
+            <NuxtLink to="/flow/section-sub-header">
                 <img src="/img/svg/arrow_left_alt.svg" alt="">
             </NuxtLink>
             <div class="flex flex-col items-center">

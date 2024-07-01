@@ -1,6 +1,6 @@
 <template>
     <div class="bg-bgBlue shadow-inner rounded-t-3xl grid grid-flow-col gap-1 flex justify-evenly px-6 py-6 h-15 content-center fixed bottom-0 w-full">
-        <NuxtLink to="" class="">
+        <NuxtLink to="/dashboard" class="">
             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_2037_122" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="25">
                 <rect width="25" height="25" fill="#D9D9D9"/>

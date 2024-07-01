@@ -2,7 +2,7 @@
     <!-- <img src="/img/bg-profile.jpg" alt="" class="w-full mx-auto mb-10 mt-6"> -->
     <!-- <img src="/img/bg-profile.jpg" alt="" class="w-auto mx-auto bg-fixed"> -->
     <div class="container mx-auto px-4 py-20 grid content-center">
-        <NuxtLink to="/">
+        <NuxtLink to="/dashboard">
             <img src="/img/svg/arrow_left_alt.svg" alt="">
         </NuxtLink>
         
