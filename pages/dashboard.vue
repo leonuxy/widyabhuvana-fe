@@ -31,28 +31,32 @@
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                        <img src="https://via.placeholder.com/200" alt="Image 1" class="w-full h-auto object-cover rounded-md">
+                        <img src="../assets/gambar/seni_budaya.png" alt="Image 1"
+                             class="w-full h-auto object-cover rounded-md">
                         <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Seni Budaya</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                    <img src="https://via.placeholder.com/200" alt="Image 2" class="w-full h-auto object-cover rounded-md">
+                      <img src="../assets/gambar/aljabar.png" alt="Image 2"
+                           class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Aljabar</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                    <img src="https://via.placeholder.com/200" alt="Image 2" class="w-full h-auto object-cover rounded-md">
+                      <img src="../assets/gambar/aljabar.png" alt="Image 2"
+                           class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Aljabar</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                    <img src="https://via.placeholder.com/200" alt="Image 3" class="w-full h-auto object-cover rounded-md">
+                      <img src="../assets/gambar/pendidikan_kewarganegaraan.png" alt="Image 3"
+                           class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Pendidikan Kewarganegaraan</p>
                     </NuxtLink>
                 </div>
@@ -64,21 +68,24 @@
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                    <img src="https://via.placeholder.com/200" alt="Image 1" class="w-full h-auto object-cover rounded-md">
+                      <img src="../assets/gambar/seni_budaya.png" alt="Image 1"
+                           class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Seni Budaya</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                    <img src="https://via.placeholder.com/200" alt="Image 2" class="w-full h-auto object-cover rounded-md">
+                      <img src="../assets/gambar/aljabar.png" alt="Image 2"
+                           class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Aljabar</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
                     <NuxtLink to="/flow/section-header">
-                    <img src="https://via.placeholder.com/200" alt="Image 3" class="w-full h-auto object-cover rounded-md">
+                      <img src="../assets/gambar/pendidikan_kewarganegaraan.png" alt="Image 3"
+                           class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Pendidikan Kewarganegaraan</p>
                     </NuxtLink>
                 </div>
