@@ -6,7 +6,7 @@
       <p class="text-gray-600 mb-2" style="max-width: 200px;">Total Poin: {{ points }}</p>
       <span class="text-blue-600" v-if="pageType === 'edit'">Sunting Profil</span>
       <span class="text-blue-600"
-            v-else-if="pageType === 'change'">{{ editMode ? 'Simpan Perubahan' : 'Ubah Profil' }}</span>
+            v-else-if="pageType === 'change'">{{ isEditing ? 'Simpan Perubahan' : 'Ubah Profil' }}</span>
     </div>
   </div>
 </template>
@@ -30,14 +30,15 @@ export default {
       type: String,
       required: true
     },
-    editMode: {
+    isEditing: {
       type: Boolean,
       required: false
     }
   },
   data() {
     return {
-      resolvedImg: ''
+      resolvedImg: '',
+      editMode: false,
     };
   },
   mounted() {

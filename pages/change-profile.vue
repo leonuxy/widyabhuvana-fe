@@ -6,9 +6,9 @@
           img="display_picture.png"
           :points="120"
           :pageType="'change'"
-          :editMode="isEditing"
+          :isEditing="isEditing"
           class="floating-profile"
-          @click="EnterEditMode"
+          @click="toggleEdit"
       />
 
       <div class="icon-container">
@@ -28,7 +28,11 @@
             placeholder="Masukkan nama lengkap"
             :disabled="!isEditing"
             ref="fullName"
+            :class="{ 'is-invalid': errors.fullName }"
         >
+        <div v-if="errors.fullName" class="invalid-feedback">
+          {{ errors.fullName }}
+        </div>
       </div>
       <div class="form-group">
         <label for="password" class="form-label">Kata Sandi</label>
@@ -40,7 +44,11 @@
             placeholder="Masukkan kata sandi"
             :disabled="!isEditing"
             ref="password"
+            :class="{ 'is-invalid': errors.password }"
         >
+        <div v-if="errors.password" class="invalid-feedback">
+          {{ errors.password }}
+        </div>
       </div>
       <div class="form-group">
         <label for="email" class="form-label">Surat Elektronik</label>
@@ -52,7 +60,11 @@
             placeholder="Masukkan email"
             :disabled="!isEditing"
             ref="email"
+            :class="{ 'is-invalid': errors.email }"
         >
+        <div v-if="errors.email" class="invalid-feedback">
+          {{ errors.email }}
+        </div>
       </div>
       <div class="form-group">
         <label for="birthPlace" class="form-label">Tempat Lahir</label>
@@ -64,7 +76,11 @@
             placeholder="Masukkan tempat lahir"
             :disabled="!isEditing"
             ref="birthPlace"
+            :class="{ 'is-invalid': errors.birthPlace }"
         >
+        <div v-if="errors.birthPlace" class="invalid-feedback">
+          {{ errors.birthPlace }}
+        </div>
       </div>
       <div class="form-group">
         <label for="birthDate" class="form-label">Tanggal Lahir</label>
@@ -76,8 +92,14 @@
             @change="formatBirthDate"
             :disabled="!isEditing"
             ref="birthDate"
+            :class="{ 'is-invalid': errors.birthDate }"
         >
+        <div v-if="errors.birthDate" class="invalid-feedback">
+          {{ errors.birthDate }}
+        </div>
       </div>
+
+      <UploadImagePopup v-model="showPopup" @close="showPopup = false"/>
     </div>
 
     <NavBottom class="z-10"/>
@@ -87,11 +109,13 @@
 <script>
 import UserProfile from '@/components/UserProfile.vue';
 import NavBottom from '@/components/NavBottom.vue';
+import UploadImagePopup from '@/components/dialog/UploadImagePopup.vue';
 
 export default {
   components: {
     UserProfile,
     NavBottom,
+    UploadImagePopup,
   },
   data() {
     return {
@@ -104,6 +128,8 @@ export default {
       },
       formattedBirthDate: '',
       isEditing: false, //  State untuk mode edit
+      showPopup: false,
+      errors: {}, // Object untuk menyimpan error
     };
   },
   mounted() {
@@ -123,34 +149,26 @@ export default {
       const options = {year: 'numeric', month: 'long', day: 'numeric'};
       this.formattedBirthDate = new Date(this.form.birthDate).toLocaleDateString('id-ID', options);
     },
-    EnterEditMode() {
+    toggleEdit() {
+      this.errors = {}; // Reset error messages
+
       this.isEditing = !this.isEditing;
 
-      if (this.isEditing) {
-        // Jika dalam mode edit, fetch data profil dari backend
-        //  this.form = this.fetchDataFromBackend();
+      if (!this.isEditing) {
+        this.validateForm();
 
-        // Set these fields as not readonly in method
-        this.$nextTick(() => {
-          this.$refs.fullName.disabled = false;
-          this.$refs.password.disabled = false;
-          this.$refs.email.disabled = false;
-          this.$refs.birthPlace.disabled = false;
-          this.$refs.birthDate.disabled = false;
-        });
-      } else {
-        // Jika keluar mode edit, simpan perubahan ke backend
-        // this.saveDataToBackend();
-
-        // Set these fields to readonly in method
-        this.$nextTick(() => {
-          this.$refs.fullName.disabled = true;
-          this.$refs.password.disabled = true;
-          this.$refs.email.disabled = true;
-          this.$refs.birthPlace.disabled = true;
-          this.$refs.birthDate.disabled = true;
-        });
+        if (Object.keys(this.errors).length > 0) {
+          this.isEditing = true;
+        }
       }
+
+      this.$nextTick(() => {
+        this.$refs.fullName.disabled = !this.isEditing;
+        this.$refs.password.disabled = !this.isEditing;
+        this.$refs.email.disabled = !this.isEditing;
+        this.$refs.birthPlace.disabled = !this.isEditing;
+        this.$refs.birthDate.disabled = !this.isEditing;
+      });
     },
     goBack() {
       // Logic untuk kembali ke halaman sebelumnya
@@ -158,9 +176,34 @@ export default {
     },
     handleUpload() {
       // Logic untuk menangani upload gambar
-      console.log('Upload image button clicked!');
+      this.showPopup = true;
       // Implementasikan logika Anda untuk upload gambar di sini
     },
+    validateForm() {
+      this.errors = {};
+
+      if (!this.form.fullName) {
+        this.errors.fullName = 'Nama lengkap harus diisi';
+      }
+
+      if (!this.form.password) {
+        this.errors.password = 'Kata sandi harus diisi';
+      }
+
+      if (!this.form.email) {
+        this.errors.email = 'Email harus diisi';
+      } else if (!/\S+@\S+\.\S+/.test(this.form.email)) {
+        this.errors.email = 'Email tidak valid';
+      }
+
+      if (!this.form.birthPlace) {
+        this.errors.birthPlace = 'Tempat lahir harus diisi';
+      }
+
+      if (!this.form.birthDate) {
+        this.errors.birthDate = 'Tanggal lahir harus diisi';
+      }
+    }
   }
 }
 </script>
@@ -249,5 +292,17 @@ export default {
 
 .icon-container img {
   cursor: pointer;
+}
+
+/* Bootstrap-inspired styling for validation */
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: .25rem;
+  font-size: .875em;
+  color: #dc3545;
 }
 </style>
