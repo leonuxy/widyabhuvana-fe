@@ -1,10 +1,10 @@
 <template>
   <div class="container-progress-belajar">
-    <div class="content">
+    <div class="content" :style="{ backgroundColor: contentBackgroundColor }">
       <img src="../assets/gambar/cerita_pendek.png" alt="Icon Paket Belajar" class="illustration"/>
       <div class="text">
-        <h2>Cerita Pendek</h2>
-        <p>Kegiatan 2 | Unsur-Unsur Pembangun</p>
+        <h2 :style="{ color: textColor }">Cerita Pendek</h2>
+        <p :style="{ color: textColor }">Kegiatan 2 | Unsur-Unsur Pembangun</p>
         <div class="progress-bar">
           <div class="progress" :style="{ width: progressWidth }"></div>
         </div>
@@ -15,11 +15,35 @@
 
 <script>
 export default {
+  props: {
+    sourcePage: {
+      type: String,
+      required: false,
+    }
+  },
   data() {
     return {
       progressWidth: '20%', // Sesuaikan dengan persentase progres yang diinginkan
     };
   },
+  computed: {
+    contentBackgroundColor() {
+      if (this.sourcePage === 'dashboard') {
+        return '#3B57BA';
+      } else if (this.sourcePage === 'profile') {
+        return '#FFF';
+      } else {
+        return '#fff'; // Default color if sourcePage is not defined
+      }
+    },
+    textColor() {
+      if (this.sourcePage === 'dashboard') {
+        return '#FFF';
+      } else {
+        return '#000'; // Default color if sourcePage is not defined
+      }
+    }
+  }
 };
 </script>
 
@@ -37,7 +61,6 @@ export default {
   display: flex;
   flex-direction: row; /* Mengubah dari column ke row */
   align-items: center;
-  background-color: #fff;
   padding: 10px; /* Tambahkan padding untuk mengurangi ukuran keseluruhan */
   border-radius: 8px; /* Kurangi border radius untuk tampilan yang lebih kecil */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -51,6 +74,7 @@ export default {
 
 .text {
   text-align: left; /* Rata kiri untuk teks */
+  width: calc(100% - 10px - 10px)
 }
 
 .text h2 {
@@ -66,7 +90,7 @@ export default {
 }
 
 .progress-bar {
-  width: calc(100% - 130px); /* Mengatur lebar progress bar */
+  width: calc(100% - 10px - 10px); /* Mengatur lebar progress bar */
   height: 8px; /* Mengurangi tinggi progress bar */
   background-color: #eee;
   border-radius: 4px;
