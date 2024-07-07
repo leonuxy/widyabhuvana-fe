@@ -4,7 +4,7 @@
       <h1 class="help-don__title">Tahukah Kamu?</h1>
     </div>
     <div class="help-don__content">
-      <img class="help-don__image" src="/assets/gambar/man-thinking.png" alt="Gambar Orang Bingung"/>
+<!--      <img class="help-don__image" src="/assets/gambar/man-thinking.png" alt="Gambar Orang Bingung"/>-->
       <ul class="help-don__list">
         <li class="help-don__item">
           <strong>Cerpen terpanjang di dunia</strong> adalah "The Master of Caerbont" oleh E.R. Eddison, yang memiliki
