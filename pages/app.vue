@@ -1,92 +1,87 @@
 <template>
   <div class="container mx-auto px-4 py-20 grid content-center">
-    <NuxtLink to="/learning">
-      <img src="/img/svg/arrow_left_alt.svg" alt="">
-    </NuxtLink>
+    <div class="flex justify-between place-content-evenly">
+            <NuxtLink to="/learning">
+                <img src="/img/svg/arrow_left_alt.svg" alt="">
+            </NuxtLink>
+            <div class="flex flex-col items-center">
+                <div class="bg-amber-400 rounded-lg py-2 px-6 flex items-center justify-center text-white">
+                    Berlatih
+                </div>
+                <div class="bg-secondaryBlue rounded-lg py-2 px-6 flex items-center justify-center text-white text-sm w-full">
+                    50 Poin
+                </div>
+            </div>
+        </div>
     <h1 class="font-bold text-cyan-800 text-center block text-3xl">{{ $route.query.activity }}</h1>
-    <br>
-    <br>
     <div class="w-full min-h-80 shadow-md rounded-lg bg-chocolateMain content-center">
-      <div class="grid content-center py-10">
-        <div class="grid justify-items-center content-center">
-          <img src="/img/svg/play_button.svg" class="w-16" alt="">
-        </div>
+      <div class="grid content-center py-5"> <!-- Mengurangi padding pada elemen ini -->
       </div>
-      <NuxtLink to="/flow/what-is-audio">
-        <div class="grid content-end px-5 pb-4 self-end">
-          <h3 class="text-white text-2xl">Menonton Video {{  $route.query.description }}</h3>
-        </div>
-      </NuxtLink>
+      <div class="flex justify-center">
+        <iframe :src="`https://www.youtube.com/embed/${video}`" width="560" height="315" frameborder="0"
+          allowfullscreen class="mt-2"></iframe> <!-- Mengurangi margin-top pada elemen ini -->
+      </div>
     </div>
-    <NuxtLink to="/flow/what-is-audio">
-      <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-orange-500 h-100 md:min-h-min">
-        <div class="flex flex-row justify-items-stretch">
-          <div class="w-12 h-12 mr-8 place-content-between">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="feather feather-headphones w-full h-full text-gray-700"
-            >
-              <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-              <path
-                d="M21 18a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3v-3a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3zM3 18a3 3 0 0 0 3 3h1a3 3 0 0 0 3-3v-3a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-white text-2xl">Mendengarkan {{ $route.query.description }}</h3>
-          </div>
-        </div>
-      </div>
-    </NuxtLink>
-    <div class="w-full mt-6 rounded-lg p-8 shadow-lg bg-secondaryBlue h-100 md:min-h-min">
-      <NuxtLink to="/flow/what-is-desc">
-        <div class="flex flex-row justify-items-stretch">
-          <div class="w-12 h-12 mr-8 place-content-between">
-            <img src="/img/svg/book_open.svg" alt="">
-          </div>
-          <div>
-            <h3 class="text-white text-2xl">Membaca {{ $route.query.description }}</h3>
-          </div>
-        </div>
-      </NuxtLink>
+    <div class="mt-8"> <!-- Tambahkan kelas margin-top -->
+      <h6 class="text-black text-2xl"> Cerpen adalah sebuah cerita pendek yang bersifat khayal sehingga termasuk dalam
+        bentuk prosa naratif fiktif (Lado, 2016). (Mansyur, 2018) menambahkan bahwa cerpen yang berbentuk prosa itu 
+        menggambarkan persoalan hidup manusia tentang kehidupan. Sependapat dengan hal tersebut (Mutia et al., 2022)
+        pun berpendapat bahwa cerpen merupakan karya sastra naratif fiktif atau khayal dan tak nyata dan ceritanya
+        terinspirasi dari kisah hidup seorang manusia. Tidak hanya menceritakan tentang persoalan manusia, cerpen juga
+        menceritakan tentang bagaimana solusi dari permasalahan yang dihadapi (Februona Anding et al., 2021). Dalam
+        kepenulisannya pun cerpen kurang dari 10.000 kata dan kurang dari 10 halaman serta ceritanya berfokus pada
+        satu konflik pokok yang dialami
+        oleh seorang tokoh (Rifky Fadilah et al., 2024). Maka, dapat disimpulkan bahwa cerita pendek adalah salah satu
+        jenis karya sastra berbentuk prosa fiksi yang menceritakan tentang kisah hidup seorang manusia sehubungan
+        dengan permasalahan serta cara menyelesaikannya.</h6>
     </div>
   </div>
+
   <NavBottom />
 </template>
 
 <script>
 export default {
-  name: 'App',
-  methods: {
-    handleActivitySelected() {
-      if (this.$route.query.activity === 'Apa itu Cerita Pendek?') {
-        this.title = 'Apa itu Cerita Pendek?';
-        this.description = 'Pengertian Cerita Pendek';
-      } else if (this.$route.query.activity === 'Unsur Pembangun Cerpen') {
-        this.title = 'Unsur Pembangun Cerpen';
-        this.description = 'Deskripsi Unsur Pembangun Cerpen';
-      } else if (this.$route.query.activity === 'Nilai-Nilai Kehidupan') {
-        this.title = 'Nilai-Nilai Kehidupan';
-        this.description = 'Deskripsi Nilai-Nilai Kehidupan';
-      } else if (this.$route.query.activity === 'Menulis Cerpen') {
-        this.title = 'Menulis Cerpen';
-        this.description = 'Deskripsi Menulis Cerpen';
-      }
-      // Tambahkan kondisi untuk aktivitas lainnya jika perlu
-    }
+  name: 'WhatIsAudio',
+  data() {
+    return {
+      activity: '',
+      description: '',
+      video: ''
+    };
   },
-  mounted() {
-    this.handleActivitySelected();
+  created() {
+    this.activity = this.$route.query.activity || 'Default Activity';
+    this.description = this.$route.query.description || 'Default Description';
+    this.video = this.$route.query.video || 'defaultVideoId';
   }
 };
 </script>
 
 <style scoped>
-/* Add your styles here */
+.bg-chocolateMain {
+  background-color: #523a3a;
+}
+
+.bg-secondaryBlue {
+  background-color: #3f6ac7;
+}
+
+.bg-amber-400 {
+    background-color: #ffa228;
+  }
+.mt-2 {
+  margin-top: 0.5rem; /* Sesuaikan nilai margin-top sesuai kebutuhan */
+}
+
+.mt-8 {
+  margin-top: 2rem;
+  /* Sesuaikan nilai margin-top sesuai kebutuhan */
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  /* Sesuaikan nilai padding sesuai kebutuhan */
+}
 </style>
