@@ -25,8 +25,19 @@
     <div class="mt-8"> <!-- Tambahkan kelas margin-top -->
       <h6 class="text-black text-2xl"> {{ inTextKegiatan }}</h6>
     </div>
+    <div class="flex flex-row-reverse">
+            <!-- <div class="md:w-40"> -->
+                
+                <NuxtLink to="/flow/definition_cerpen">
+                    <button class="bg-amber-500 mt-4 rounded-lg h-10 w-40 xs:w-full flex items-center justify-center text-white">
+                        Selanjutnya!
+                        <!-- <span class="absolute top-0 right-0 inline-flex items-center justify-center px-1 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">3</span> -->
+                    </button>
+                </NuxtLink>
+            <!-- </div> -->
+        </div>
   </div>
-
+  
   <NavBottom />
 </template>
 

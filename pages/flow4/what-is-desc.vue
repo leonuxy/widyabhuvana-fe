@@ -9,7 +9,7 @@
             </NuxtLink>
             <div class="flex flex-col items-center">
                 <div class="bg-amber-400 rounded-lg py-2 px-6 flex items-center justify-center text-white">
-                    Belajar
+                    Belajar 
                 </div>
                 <div class="bg-secondaryBlue rounded-lg py-2 px-6 flex items-center justify-center text-white text-sm w-full">
                     20 Poin

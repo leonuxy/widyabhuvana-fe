@@ -34,10 +34,11 @@
             </div>
           </div>
         </div>
-  
-        <button class="bg-amber-400 text-white font-bold py-2 px-8 rounded-lg mb-6 lanjut-button">
+        <NuxtLink to="/learning">
+          <button class="bg-amber-400 text-white font-bold py-2 px-8 rounded-lg mb-6 lanjut-button">
           LANJUT
         </button>
+        </NuxtLink>
       </div>
       <NavBottom/>
     </div>
