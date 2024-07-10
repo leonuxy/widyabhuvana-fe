@@ -12,21 +12,21 @@
         <div class="columns">
             <div class="column">
                 <h2>Kolom 1</h2>
-                <button class="option-button" @click="selectOption('C')">C</button>
-                <button class="option-button" @click="selectOption('A')">A</button>
-                <button class="option-buttons" @click="selectOption('B')">B</button>
+                <button class="option-button">C</button>
+                <button class="option-button">A</button>
+                <button class="option-buttons">B</button>
             </div>
             <div class="column">
                 <h2>Kolom 2</h2>
-                <button class="option-buttons" @click="selectOption('B')">B</button>
-                <button class="option-button" @click="selectOption('A')">A</button>
-                <button class="option-button" @click="selectOption('C')">C</button>
+                <button class="option-buttons">B</button>
+                <button class="option-button">A</button>
+                <button class="option-button">C</button>
             </div>
         </div>
 
         <div class="button-group">
             <NuxtLink to="/flow/question">
-                  <button class="option-buttons wide-button bg-amber-500 mt-4 rounded-lg h-10 w-40 xs:w-full flex items-center justify-center text-white" @click="checkAnswer">MULAI</button>
+                  <button class="option-buttons wide-button bg-amber-500 mt-4 rounded-lg h-10 w-40 xs:w-full flex items-center justify-center text-white">MULAI</button>
                 </NuxtLink>   
         </div>
     </div>
