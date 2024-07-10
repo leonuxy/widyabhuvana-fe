@@ -44,6 +44,7 @@
   <style scoped>
   .container {
     max-width: 600px;
+    margin-bottom: 100px;
   }
   .bg-blue-100 {
     background-color: #dceeff;
