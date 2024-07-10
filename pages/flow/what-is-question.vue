@@ -84,14 +84,19 @@ export default {
   },
   methods: {
     nextPage() {
-      s
       if (this.fromPage === "permainan-detektif-video") {
         this.$router.push({
-          path: '/flow/definisi'
+          path: '/flow/definisi',
+          query: {
+            fromPage: this.fromPage
+          }
         })
       } else {
         this.$router.push({
-          path: '/flow/what-is-match'
+          path: '/flow/what-is-match',
+          query: {
+            fromPage: this.fromPage
+          }
         })
       }
     }

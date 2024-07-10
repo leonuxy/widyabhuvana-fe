@@ -17,12 +17,12 @@
   
         <div class="mt-6 text-center">
           <h1 class="font-bold text-2xl text-secondaryBlue">Definisi</h1>
-          <h2 class="font-bold text-3xl mb-3 text-secondaryBlue">Cerita Pendek</h2>
+          <h2 class="font-bold text-3xl mb-3 text-secondaryBlue">{{ this.title }}</h2>
         </div>
   
         <div class="w-full flex flex-col items-center mt-6">
           <div class="bg-secondaryBlue p-4 rounded-lg w-full max-w-lg text-white text-center mb-4">
-            Setelah belajar memahami definisi cerpen, menurutmu apa itu cerpen?
+            {{ this.questioner }}
           </div>
           <textarea
             class="w-full max-w-lg p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-secondaryBlue"
@@ -42,8 +42,28 @@
   
   <script>
   export default {
+    data() {
+      return {
+        title: "",
+        questioner: "",
+        fromPage: "",
+      }
+    },
     methods: {
       // Add methods here if needed
+    },
+    mounted() {
+      this.fromPage = this.$route.query.fromPage;
+
+      if (this.fromPage === "permainan-detektif-video") {
+        this.title = "Unsur-unsur pembangun cerpen";
+
+        this.questioner = "Setelah kamu belajar dan berlatih, maka apa saja unsur-unsur pembangun dalam cerpen?"
+      } else {
+        this.title = "Cerita Pendek";
+
+        this.questioner = "Setelah belajar memahami definisi cerpen, menurutmu apa itu cerpen?"
+      }
     }
   }
   </script>
