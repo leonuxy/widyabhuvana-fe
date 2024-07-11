@@ -30,7 +30,7 @@
             <div class="mt-5 grid grid-cols-3 gap-10 sm:grid-cols-3 md:grid-cols-6">
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
+                    <NuxtLink to="/learning">
                         <img src="../assets/gambar/seni_budaya.png" alt="Image 1"
                              class="w-full h-auto object-cover rounded-md">
                         <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Seni Budaya</p>
@@ -38,24 +38,24 @@
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
-                      <img src="../assets/gambar/aljabar.png" alt="Image 2"
+                    <NuxtLink to="/learning">
+                        <img src="../assets/gambar/aljabar.png" alt="Image 2"
                            class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Aljabar</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
-                      <img src="../assets/gambar/aljabar.png" alt="Image 2"
+                    <NuxtLink to="/learning">
+                        <img src="../assets/gambar/aljabar.png" alt="Image 2"
                            class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Aljabar</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
-                      <img src="../assets/gambar/pendidikan_kewarganegaraan.png" alt="Image 3"
+                    <NuxtLink to="/learning">
+                        <img src="../assets/gambar/pendidikan_kewarganegaraan.png" alt="Image 3"
                            class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Pendidikan Kewarganegaraan</p>
                     </NuxtLink>
@@ -67,24 +67,24 @@
             <div class="mt-5 grid grid-cols-3 gap-10 sm:grid-cols-3 md:grid-cols-6">
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
-                      <img src="../assets/gambar/seni_budaya.png" alt="Image 1"
+                    <NuxtLink to="/learning">
+                        <img src="../assets/gambar/seni_budaya.png" alt="Image 1"
                            class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Seni Budaya</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
-                      <img src="../assets/gambar/aljabar.png" alt="Image 2"
+                    <NuxtLink to="/learning">
+                        <img src="../assets/gambar/aljabar.png" alt="Image 2"
                            class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Aljabar</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/flow/section-header">
-                      <img src="../assets/gambar/pendidikan_kewarganegaraan.png" alt="Image 3"
+                    <NuxtLink to="/learning">
+                        <img src="../assets/gambar/pendidikan_kewarganegaraan.png" alt="Image 3"
                            class="w-full h-auto object-cover rounded-md">
                     <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Pendidikan Kewarganegaraan</p>
                     </NuxtLink>
