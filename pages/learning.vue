@@ -1,5 +1,5 @@
 <template>
-  <div class="learning-container mx-auto px-4 py-10 grid content-center">
+  <div class="container mx-auto px-4 py-10 grid content-center">
     <div class="flex justify-between place-content-evenly">
       <div class="w-full">
         <img src="/img/learning.png" class="w-[200px] h-[200px]">

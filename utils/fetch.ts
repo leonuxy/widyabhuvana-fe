@@ -1,8 +1,10 @@
 import { createFetch } from '@vueuse/core'
 
+
 export const useFetch = createFetch({
     baseUrl: 'https://deaf-kata-kiseky-916fbebf.koyeb.app', 
     combination:'chain',
+    override: true,
     options: {
         async beforeFetch({options}) {
             const token = localStorage.getItem('Authorization');

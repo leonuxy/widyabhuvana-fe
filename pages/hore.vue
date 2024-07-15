@@ -22,7 +22,7 @@
             <h1 class="font-bold text-xl text-secondaryBlue">Pelajaran Telah Selesai</h1>
 
           
-                <img src="../assets/gambar/hore.png" class="w-80">
+                <img src="../assets/gambar/congrats.png" class="w-80">
             <!-- <div class="w-full bg-white rounded-lg  text-left py-3"> -->
                 
             <div class="flex justify-between w-full text-white gap-10">
