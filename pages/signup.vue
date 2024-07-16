@@ -1,111 +1,110 @@
 <template>
-    <div class="container mx-auto p-4">
-        <NuxtLink to="/">
-            <img src="/img/svg/arrow_left_alt.svg" alt="">
-        </NuxtLink>
-        <div class="grid content-center">
-            <img src="/img/logo.png" alt="" class="w-28 mx-auto mb-10 mt-6">
-            <h3 class="font-bold text-3xl">Mendaftar</h3>
-            <p class="text-sm italic">Masukkan informasi pribadi untuk mendaftar.</p>
-    
-            <form  @submit.prevent="register">
-                <div class="grid gap-6 mt-4">
-                <FormsInput
-                    label="Nama Pengguna"
-                    type="text"
-                    placeholder="Masukkan Nama Anda"
-                    v-model:text="form.name"
-                    id="nama-penguna"
-                />
+  <div class="container mx-auto p-4">
+    <NuxtLink to="/">
+      <img alt="" src="/img/svg/arrow_left_alt.svg">
+    </NuxtLink>
+    <div class="grid content-center">
+      <img alt="" class="w-28 mx-auto mb-10 mt-6" src="/img/logo.png">
+      <h3 class="font-bold text-3xl">Mendaftar</h3>
+      <p class="text-sm italic">Masukkan informasi pribadi untuk mendaftar.</p>
 
-                <FormsInput
-                    label="Surat Elektronik"
-                    type="email"
-                    v-model:text="form.email"
-                    placeholder="Tuliskan Surat Elektronik"
-                    id="surat-elektronik"
-                />
+      <form @submit.prevent="register">
+        <div class="grid gap-6 mt-4">
+          <FormsInput
+              id="surat-elektronik"
+              v-model="email"
+              label="Surat Elektronik"
+              placeholder="Tuliskan Surat Elektronik"
+              type="email"
+              @input="updateEmail"
+          />
 
-                <FormsInput
-                    label="Kata Sandi"
-                    type="password"
-                    placeholder="Tuliskan Kata Sandi"
-                    v-model:text="form.password"
-                    id="kata-sandi"
-                />
-                
-                <FormsInput
-                    label="Konfirmasi Kata Sandi"
-                    type="password"
-                    placeholder="Konfirmasi Kata Sandi"
-                    id="konfirmasi-kata-sandi"
-                    v-model:text="form.c_password"
-                />
-            </div>
-            <button :disabled="isDisabled" type="submit" class="text-white block w-full text-center font-semibold p-4 bg-primaryBlue rounded-xl text-xl mt-4">Mendaftar</button>
-            <p class="text-sm italic text-red-600">{{ error }}</p>
-        </form>
+          <FormsInput
+              id="kata-sandi"
+              v-model="password"
+              label="Kata Sandi"
+              placeholder="Tuliskan Kata Sandi"
+              type="password"
+              @input="updatePassword"
+          />
+
+          <FormsInput
+              id="konfirmasi-kata-sandi"
+              v-model="cPassword"
+              label="Konfirmasi Kata Sandi"
+              placeholder="Konfirmasi Kata Sandi"
+              type="password"
+              @input="updateRepeatPassword"
+          />
         </div>
+        <button :disabled="isLoading"
+                class="text-white block w-full text-center font-semibold p-4 bg-primaryBlue rounded-xl text-xl mt-4"
+                type="submit">Mendaftar
+        </button>
+        <p class="text-sm italic text-red-600">{{ error }}</p>
+      </form>
     </div>
+  </div>
 </template>
 
 <script setup>
-    const error = useState('error', () => "")
-    const isDisabled = useState('is_disabled', () => false)
-</script>
+import {ref} from 'vue';
+import {useRouter} from 'vue-router';
+import {useFirebase} from '../composables/firebase';
 
-<script>
-import { useFetch } from '~/utils/fetch';
-import {REGISTER_API_URL} from '~/constant/config'
-export default {
-    data() {
-        return {
-            form: {
-                name:"",
-                email: "",
-                password: "",
-                c_password: ""
-            },
-        }
-    },
-    methods: {
-        async register() {
-            const error = useState('error')
-            const isDisabled = useState('is_disabled')
+const router = useRouter();
+const {auth, createUserWithEmailAndPassword} = useFirebase();
 
-            if (this.form.password) {
-                const alphanumericRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z]).{1,}$/;
-                const lengthCheck = this.form.password.length >= 1 && this.form.password.length <= 8;
+const email = ref('');
+const password = ref('');
+const cPassword = ref('');
+const error = ref(null);
+const isLoading = ref(false);
 
-                if (!alphanumericRegex.test(this.form.password) || !lengthCheck) {
-                    error.value = "Password harus alfanumerik dengan minimal satu huruf kapital dan panjang antara 1 sampai 8 karakter."
-                    return 
-                }
-            }
+const updateEmail = (event) => {
+  email.value = event.target.value;
+};
 
-            if (this.form.password != this.form.c_password) {
-                error.value = "Konfirmasi kata sandi harus sama dengan kata sandi."
-                return 
-            }
+const updatePassword = (event) => {
+  password.value = event.target.value;
+};
 
-            isDisabled.value = true 
-            const { statusCode, response } = await useFetch(REGISTER_API_URL).post({
-                'username': this.form.name,
-                'email': this.form.email, 
-                'password': this.form.password
-            })
+const updateRepeatPassword = (event) => {
+  cPassword.value = event.target.value;
+};
 
-            isDisabled.value = false
-            const resp = await response.value.json()
-            if ((statusCode.value == 409 &&  resp.detail.email))   {
-                error.value = "Email sudah teregistrasi"
-            } else if (statusCode.value == 201) {
-                localStorage.setItem('Authorization', resp.token);
-                navigateTo('/dashboard')
-            } else {
-                error.value = "Oops... terjadi sesuatu yang tidak terduga"
-            }
-        },
-    },
+const register = async () => {
+  try {
+    isLoading.value = true;
+
+    if (password.value !== cPassword.value) {
+      error.value = "Konfirmasi kata sandi harus sama dengan kata sandi.";
+      return;
+    }
+
+    // Use the imported function
+    const userCredential = await createUserWithEmailAndPassword(auth, email.value, password.value);
+    const user = userCredential.user; // Get the user object
+
+    // Redirect to dashboard after registration
+    await router.push('/dashboard');
+  } catch (error) {
+    // Handle specific Firebase errors
+
+    console.error('Registration error:', error);
+
+    console.error('Registration error code:', error.code);
+
+    if (error.code === 'auth/weak-password') {
+      error.value = "Kata sandi terlalu lemah. Gunakan kombinasi huruf, angka, dan simbol.";
+    } else if (error.code === 'auth/invalid-email') {
+      error.value = "Format email tidak valid. Pastikan email Anda benar.";
+    } else {
+      // Default error message for other cases
+      error.value = "Terjadi kesalahan saat mendaftar. Silakan coba lagi nanti.";
+    }
+  } finally {
+    isLoading.value = false;
   }
+};
 </script>
