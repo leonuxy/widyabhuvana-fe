@@ -30,10 +30,10 @@
             <div class="mt-5 grid grid-cols-3 gap-10 sm:grid-cols-3 md:grid-cols-6">
                 <!-- Image Card -->
                 <div class="w-full">
-                    <NuxtLink to="/learning">
+                    <NuxtLink to="/cerita_pendek/learning">
                         <img src="../assets/gambar/seni_budaya.png" alt="Image 1"
                              class="w-full h-auto object-cover rounded-md">
-                        <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Seni Budaya</p>
+                        <p class="text-center mt-2 text-xs sm:text-sm md:text-sm">Cerita Pendek</p>
                     </NuxtLink>
                 </div>
                 <!-- Image Card -->
