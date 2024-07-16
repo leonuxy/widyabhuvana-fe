@@ -41,7 +41,7 @@
                 class="text-white block w-full text-center font-semibold p-4 bg-primaryBlue rounded-xl text-xl mt-4"
                 type="submit">Mendaftar
         </button>
-        <p class="text-sm italic text-red-600">{{ error }}</p>
+        <p v-if="error" class="text-sm italic text-red-600">{{ error }}</p> <!-- Display error message -->
       </form>
     </div>
   </div>
@@ -99,6 +99,8 @@ const register = async () => {
       error.value = "Kata sandi terlalu lemah. Gunakan kombinasi huruf, angka, dan simbol.";
     } else if (error.code === 'auth/invalid-email') {
       error.value = "Format email tidak valid. Pastikan email Anda benar.";
+    } else if (error.code === 'auth/email-already-in-use') {
+      error.value = "Email ini sudah digunakan. Silakan gunakan email yang berbeda.";
     } else {
       // Default error message for other cases
       error.value = "Terjadi kesalahan saat mendaftar. Silakan coba lagi nanti.";

@@ -1,6 +1,6 @@
 // Import the Firebase SDK
 import {initializeApp} from '@firebase/app';
-import {createUserWithEmailAndPassword, getAuth} from '@firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from '@firebase/auth';
 
 // Initialize Firebase with your project's configuration
 const firebaseConfig = {
@@ -23,4 +23,5 @@ const auth = getAuth(app);
 export const useFirebase = () => ({
     auth,
     createUserWithEmailAndPassword, // Export the function
+    signInWithEmailAndPassword,
 });
